@@ -31,6 +31,7 @@ JNIEXPORT jint JNICALL Java_Foo_nativeFoo(
 		temp[i] = i;
 
 	(*env)->SetByteArrayRegion(env, jarr, 0, size, temp);
+	free(temp);
 
 	return 0;
 }
