@@ -28,7 +28,7 @@ JNIEXPORT jint JNICALL Java_Foo_nativeFoo(
 
 	(*env)->ReleaseStringUTFChars(env, jstr, str);
 
-	return -1;
+	return 0;
 
 }
 
