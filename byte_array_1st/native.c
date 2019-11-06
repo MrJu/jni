@@ -23,7 +23,7 @@ JNIEXPORT jint JNICALL Java_Foo_nativeFoo(
 
 	arr = (*env)->GetByteArrayElements(env, jarr, 0);
 	if (!arr)
-		return -1;
+		return JNI_ERR;
 
 	size = (*env)->GetArrayLength(env, jarr);
 
@@ -41,10 +41,6 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *jvm, void *reserved)
 	jclass class;
 
 	if ((*jvm)->GetEnv(jvm, (void **)&env, JNI_VERSION_1_4))
-		return JNI_ERR;
-
-	class = (*env)->FindClass(env, "Foo");
-	if (class == NULL)
 		return JNI_ERR;
 
 	return JNI_VERSION_1_4;

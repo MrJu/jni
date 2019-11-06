@@ -23,7 +23,7 @@ JNIEXPORT jint JNICALL foo(JNIEnv *env, jobject this, jstring jstr)
 
 	str = (*env)->GetStringUTFChars(env, jstr, NULL);
 	if(!str)
-		return -1;
+		return JNI_ERR;
 
 	printf("%s: %d %s\n", __func__, __LINE__, str);
 

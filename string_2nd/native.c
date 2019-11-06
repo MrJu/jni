@@ -36,9 +36,5 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *jvm, void *reserved)
 	if ((*jvm)->GetEnv(jvm, (void **)&env, JNI_VERSION_1_4))
 		return JNI_ERR;
 
-	class = (*env)->FindClass(env, "Foo");
-	if (class == NULL)
-		return JNI_ERR;
-
 	return JNI_VERSION_1_4;
 }

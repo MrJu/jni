@@ -22,7 +22,7 @@ JNIEXPORT jint JNICALL Java_Foo_nativeFoo(
 
 	str = (*env)->GetStringUTFChars(env, jstr, NULL);
 	if(!str)
-		return -1;
+		return JNI_ERR;
 
 	printf("%s: %d %s\n", __func__, __LINE__, str);
 
@@ -38,10 +38,6 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *jvm, void *reserved)
 	jclass class;
 
 	if ((*jvm)->GetEnv(jvm, (void **)&env, JNI_VERSION_1_4))
-		return JNI_ERR;
-
-	class = (*env)->FindClass(env, "Foo");
-	if (class == NULL)
 		return JNI_ERR;
 
 	return JNI_VERSION_1_4;

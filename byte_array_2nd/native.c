@@ -25,7 +25,7 @@ JNIEXPORT jint JNICALL Java_Foo_nativeFoo(
 	size = (*env)->GetArrayLength(env, jarr);
 	temp = malloc(sizeof(jbyte) * size);
 	if (!temp)
-		return -1;
+		return JNI_ERR;
 
 	for (i = 0; i < size; i++)
 		temp[i] = i;
@@ -42,10 +42,6 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *jvm, void *reserved)
 	jclass class;
 
 	if ((*jvm)->GetEnv(jvm, (void **)&env, JNI_VERSION_1_4))
-		return JNI_ERR;
-
-	class = (*env)->FindClass(env, "Foo");
-	if (class == NULL)
 		return JNI_ERR;
 
 	return JNI_VERSION_1_4;
