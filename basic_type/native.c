@@ -91,7 +91,7 @@ JNIEXPORT jboolean JNICALL Java_Foo_nativeBoolean(
 JNIEXPORT jchar JNICALL Java_Foo_nativeChar(
 	JNIEnv *env, jobject this, jchar i)
 {
-	printf("%s: %d j = %c\n", __func__, __LINE__, i);
+	printf("%s: %d j = %hu\n", __func__, __LINE__, i);
 	return i;
 }
 
