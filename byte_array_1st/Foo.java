@@ -21,7 +21,7 @@ public class Foo {
 	public static void main (String args[]) {
 		int i, ret, size = 16;
 		Foo foo = new Foo();
-		byte [] buf = new byte[size];
+		byte[] buf = new byte[size];
 
 		for (i = 0; i < size; i++) {
 			buf[i] = (byte)i;
@@ -31,5 +31,7 @@ public class Foo {
 		if (ret < 0) {
 			return;
 		}
+
+		return;
 	}
 }
